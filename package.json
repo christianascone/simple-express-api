@@ -1,0 +1,17 @@
+{
+  "name": "simple-express",
+  "version": "1.0.0",
+  "description": "simple callback test service",
+  "main": "simple-express.js",
+  "scripts": {
+    "start": "node app/simple-express.js",
+    "test": "mocha test/api-integration.test.js"
+  },
+  "author": "",
+  "repository": {},
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "1.15.0",
+    "express": "4.13.4"
+  }
+}
