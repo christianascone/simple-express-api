@@ -21,15 +21,28 @@ router.get("/users", function(req, res, next) {
   var count = req.query.size || 10;
   var values = [];
   for (var i = 0; i < count; i++) {
-  	var email = randomString(5)+"@"+randomString(5)+".com";
-  	var name = randomString(10);
-  	//https://www.paulirish.com/2009/random-hex-color-code-snippets/
-  	var color = getRandomColor();
-  	color = color.toUpperCase();
-  	values.push({id: i+1, name: name, email: email, colorHexCode: color});
+    var email = randomString(5)+"@"+randomString(5)+".com";
+    var name = randomString(10);
+    //https://stackoverflow.com/a/1484514/5746936
+    var color = getRandomColor();
+    color = color.toUpperCase();
+    values.push({id: i+1, name: name, email: email, colorHexCode: color});
   }
 
   res.json({success: 1, data: values});
+});
+
+/**
+ * Simulates a user creation printing out a json with
+ * data found in request body
+ */
+router.post("/user", function(req, res, next) {
+  console.log("Request query");
+  console.log(req.query);
+  console.log("Request body");
+  console.log(req.body);
+
+  res.json({success: 1, data: req.body});
 });
 
 /**
