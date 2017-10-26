@@ -1,6 +1,7 @@
 var supertest = require("supertest");
 var should = require("chai").should();
 
+var app = require("../app/simple-express.js");
 var server = supertest.agent("http://localhost:3000");
 
 describe("Test GET /users", function() {
