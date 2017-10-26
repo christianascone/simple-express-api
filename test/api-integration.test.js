@@ -65,3 +65,25 @@ describe("Test POST /users", function() {
     });
   });
 });
+
+describe("Test PUT /users", function() {
+
+  it("should return a user with same data passed as parameters and user id passed in route", function(done) {
+    var userId = "4";
+    server.put("/api/user/" + userId)
+    .send({
+      first_name: "Name",
+      last_name: "Not Name"
+    })
+    .expect("Content-type", /json/)
+    .expect(200)
+    .end(function(err, res) {
+      res.status.should.equal(200);
+      res.body.success.should.equal(1);
+      res.body.data.userId.should.equal(userId);
+      res.body.data.first_name.should.equal("Name");
+      res.body.data.last_name.should.equal("Not Name");
+      done();
+    });
+  });
+});

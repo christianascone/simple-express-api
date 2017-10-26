@@ -46,6 +46,22 @@ router.post("/user", function(req, res, next) {
 });
 
 /**
+ * Simulates a user creation or update printing out a json with
+ * data found in request body and the given userId
+ */
+router.put("/user/:userId", function(req, res, next) {
+  console.log("Request query");
+  console.log(req.params);
+  console.log("Request body");
+  console.log(req.body);
+
+  var userId = req.params.userId;
+  req.body.userId = userId;
+
+  res.json({success: 1, data: req.body});
+});
+
+/**
  * Generate a random hex color (#RRGGBB)
  * @return {String} The generated color's code
  */
