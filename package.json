@@ -1,6 +1,6 @@
 {
   "name": "simple-express",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "simple callback test service",
   "main": "simple-express.js",
   "scripts": {
